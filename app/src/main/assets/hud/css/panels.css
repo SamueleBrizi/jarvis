@@ -1,0 +1,75 @@
+/* ---------- pannelli che salgono dal basso ---------- */
+.sheet-bg {
+  position: fixed; inset: 0; z-index: 10; background: rgba(0, 6, 12, .6);
+  opacity: 0; pointer-events: none; transition: opacity .25s;
+}
+.sheet-bg.open { opacity: 1; pointer-events: auto; }
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 11; max-height: 88vh;
+  display: flex; flex-direction: column;
+  background: linear-gradient(180deg, #071c29, #030c14);
+  border-top: 1px solid var(--cyan-dim); border-radius: 22px 22px 0 0;
+  box-shadow: 0 -10px 40px rgba(0,0,0,.6);
+  transform: translateY(105%); transition: transform .3s cubic-bezier(.2,.8,.2,1);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.sheet.open { transform: none; }
+.sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 10px; border-bottom: 1px solid var(--cyan-faint); }
+.sheet-head h2 { font-family: var(--hud); font-size: 14px; letter-spacing: .22em; color: var(--cyan); font-weight: 700; }
+.sheet-close { font-size: 20px; color: var(--muted); padding: 4px 8px; }
+.sheet-body { overflow-y: auto; padding: 12px 18px 26px; user-select: text; }
+
+/* righe della configurazione */
+.step {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--cyan-faint);
+}
+.step-dot {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; margin-top: 2px;
+  border: 1.5px solid var(--muted); display: grid; place-items: center; font-size: 12px; color: var(--muted);
+}
+.step.ok .step-dot { border-color: var(--green); color: var(--green); background: rgba(93,255,168,.1); }
+.step-main { flex: 1; min-width: 0; }
+.step-title { font-weight: 700; font-size: 16.5px; }
+.step-desc { font-size: 14px; color: var(--muted); line-height: 1.3; margin-top: 2px; }
+.step-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+.btn {
+  font-family: var(--hud); font-size: 10px; letter-spacing: .14em; font-weight: 700; text-transform: uppercase;
+  padding: 9px 13px; border-radius: 10px; border: 1px solid var(--cyan-dim); color: var(--cyan);
+  background: rgba(61,232,255,.06);
+}
+.btn:active { background: rgba(61,232,255,.18); }
+.btn.gold { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,194,74,.07); }
+.btn.red { color: var(--red); border-color: rgba(255,90,106,.4); background: rgba(255,90,106,.06); }
+.btn.big { width: 100%; padding: 14px; font-size: 12px; margin-top: 14px; }
+.btn[disabled] { opacity: .4; }
+
+.bar { height: 6px; border-radius: 3px; background: var(--cyan-faint); overflow: hidden; margin-top: 8px; }
+.bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--cyan), var(--gold)); transition: width .2s; }
+.bar-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.bar-label.err { color: var(--red); }
+
+.space { font-family: var(--hud); font-size: 10px; letter-spacing: .14em; color: var(--muted); margin-bottom: 4px; }
+
+/* impostazioni */
+.field { padding: 11px 0; border-bottom: 1px solid var(--cyan-faint); }
+.field label { display: block; font-weight: 700; font-size: 15.5px; }
+.field small { display: block; font-size: 13px; color: var(--muted); margin: 2px 0 7px; line-height: 1.25; }
+.field input[type=text], .field input[type=url], .field input[type=password], .field input[type=number], .field select, .field textarea {
+  width: 100%; padding: 9px 11px; border-radius: 10px; outline: none;
+  background: rgba(2,8,15,.8); border: 1px solid var(--cyan-dim); font-size: 15.5px;
+}
+.field textarea { min-height: 60px; resize: vertical; }
+.field input[type=range] { width: 100%; accent-color: var(--cyan); }
+.toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.toggle input { width: 46px; height: 26px; accent-color: var(--cyan); flex-shrink: 0; }
+.group-title { font-family: var(--hud); font-size: 10px; letter-spacing: .26em; color: var(--gold); margin: 18px 0 2px; }
+
+/* aiuto */
+.help-group { margin-bottom: 14px; }
+.help-group h3 { font-family: var(--hud); font-size: 10px; letter-spacing: .24em; color: var(--gold); margin-bottom: 6px; }
+.help-group li { list-style: none; font-size: 15.5px; padding: 5px 0; border-bottom: 1px solid var(--cyan-faint); }
+.help-group li::before { content: "› "; color: var(--cyan); }
+.note { font-size: 14px; color: var(--muted); line-height: 1.35; margin: 8px 0; }
+.note b { color: var(--text); }

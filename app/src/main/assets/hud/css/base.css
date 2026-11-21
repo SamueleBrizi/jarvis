@@ -1,0 +1,54 @@
+@font-face { font-family: Orbitron; src: url(../fonts/orbitron-latin-500-normal.woff2) format("woff2"); font-weight: 500; }
+@font-face { font-family: Orbitron; src: url(../fonts/orbitron-latin-700-normal.woff2) format("woff2"); font-weight: 700; }
+@font-face { font-family: Orbitron; src: url(../fonts/orbitron-latin-900-normal.woff2) format("woff2"); font-weight: 900; }
+@font-face { font-family: Rajdhani; src: url(../fonts/rajdhani-latin-500-normal.woff2) format("woff2"); font-weight: 500; }
+@font-face { font-family: Rajdhani; src: url(../fonts/rajdhani-latin-600-normal.woff2) format("woff2"); font-weight: 600; }
+@font-face { font-family: Rajdhani; src: url(../fonts/rajdhani-latin-700-normal.woff2) format("woff2"); font-weight: 700; }
+
+:root {
+  --bg: #02080f;
+  --bg2: #061520;
+  --cyan: #3de8ff;
+  --cyan-dim: rgba(61, 232, 255, .35);
+  --cyan-faint: rgba(61, 232, 255, .08);
+  --gold: #ffc24a;
+  --gold-dim: rgba(255, 194, 74, .35);
+  --red: #ff5a6a;
+  --green: #5dffa8;
+  --text: #d8f7ff;
+  --muted: #7aa6b4;
+  --radius: 14px;
+  --hud: Orbitron, sans-serif;
+  --body: Rajdhani, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 30%, #072232 0%, var(--bg) 65%);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  overflow: hidden;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+}
+
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+input, select, textarea { font: inherit; color: var(--text); }
+
+.grid-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(var(--cyan-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyan-faint) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse at 50% 35%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 35%, #000 20%, transparent 75%);
+}

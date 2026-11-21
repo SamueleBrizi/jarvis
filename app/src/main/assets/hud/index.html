@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>J.A.R.V.I.S.</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hud.css">
+<link rel="stylesheet" href="css/panels.css">
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header class="top">
+  <div class="brand">
+    <span class="brand-name">J.A.R.V.I.S.</span>
+    <span class="brand-sub" id="version">FASE 2 · ANDROID</span>
+  </div>
+  <div class="top-right">
+    <span class="chip" id="chip">SPENTO</span>
+    <span class="clock" id="clock">--:--</span>
+  </div>
+</header>
+
+<section class="core-wrap">
+  <canvas id="core" width="600" height="600"></canvas>
+  <div class="core-state" id="state">SISTEMA SPENTO</div>
+  <div class="core-partial" id="partial"></div>
+</section>
+
+<section class="log" id="log"></section>
+
+<form class="input" id="form" autocomplete="off">
+  <input id="text" type="text" placeholder="Scrivi un comando…" enterkeyhint="send">
+  <button type="submit" class="btn-send" aria-label="Invia">➤</button>
+</form>
+
+<nav class="dock">
+  <button class="dock-btn" data-open="setup"><span class="ico">⚙</span><span>Setup</span></button>
+  <button class="dock-btn" data-act="web"><span class="ico">◎</span><span>Web</span></button>
+  <button class="mic" id="mic" aria-label="Parla"><span>🎙</span></button>
+  <button class="dock-btn" data-open="settings"><span class="ico">☰</span><span>Opzioni</span></button>
+  <button class="dock-btn" data-open="help"><span class="ico">?</span><span>Comandi</span></button>
+</nav>
+
+<div class="sheet-bg" id="sheetBg"></div>
+<section class="sheet" id="sheet" aria-hidden="true">
+  <div class="sheet-head">
+    <h2 id="sheetTitle">—</h2>
+    <button class="sheet-close" id="sheetClose">✕</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</section>
+
+<script src="js/bridge.js"></script>
+<script src="js/core-visual.js"></script>
+<script src="js/log.js"></script>
+<script src="js/sheets/setup.js"></script>
+<script src="js/sheets/settings.js"></script>
+<script src="js/sheets/help.js"></script>
+<script src="js/sheet.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
